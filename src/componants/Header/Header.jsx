@@ -1,12 +1,13 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Logo from '../../assets/images/logo.svg'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Acceuil', href: '#', current: true },
+  { name: 'Recettes', href: '#', current: false },
+  { name: 'Catégories', href: '#', current: false },
+  { name: 'Conseil de Cuisine', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -15,7 +16,7 @@ function classNames(...classes) {
 
 export default function Header() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 shadow-xl">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -36,8 +37,8 @@ export default function Header() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    src={Logo}
+                    alt="Let's Cook"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
