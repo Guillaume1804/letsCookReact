@@ -14,8 +14,7 @@ export default function SearchBar({ onData, recipes, setRecipes  }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect((() => (onData(inputValue))), [inputValue])
 
-    // TODO this
-
+    
     const handleHeartClick = () => {
         const updatedRecipes = recipes.filter(recipe => recipe.heartClicked);
         console.log(updatedRecipes);
