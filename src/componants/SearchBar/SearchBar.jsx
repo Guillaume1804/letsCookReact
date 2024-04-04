@@ -10,6 +10,8 @@ export default function SearchBar({ onData, recipes, setRecipes  }) {
         setInputValue(e.target.value)
     }
 
+    // Ligne de commentaire permettant de supprimer le warning eslint de inputValue
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect((() => (onData(inputValue))), [inputValue])
 
     // TODO this

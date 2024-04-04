@@ -22,7 +22,7 @@ export default function Card({ element }) {
             setIconColor("text-red-500");
             // setFillColor("red");
         }
-    }), [isClicked])
+    }), [isClicked, element])
 
     return (
         <>
