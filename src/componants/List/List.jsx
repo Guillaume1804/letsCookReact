@@ -10,8 +10,6 @@ function List () {
         setRecipes(recipesList.map(recipe => ({...recipe, heartClicked: false})))
     }, [])
 
-    useEffect((() => (console.log(recipes))), [recipes])
-
 
     const handleDataFromChild = (data) => {
         const newTab = recipesList.filter(element => {return (element?.title.toLowerCase().includes(data.toLowerCase())) || (element?.category.toLowerCase().includes(data.toLowerCase()))})
@@ -21,7 +19,7 @@ function List () {
     return (
         <>
             <div className={"container mx-auto mt-4 px-4 py-8"}>
-                <h1 className={"text-6xl my-6"}>{`Let's Cook`}</h1>
+                <h1 className={"text-6xl my-6 text-gray-800	"}>{`Let's Cook`}</h1>
                 <SearchBar onData={handleDataFromChild} recipesList={recipesList} setRecipes={setRecipes} recipes={recipes}/>
                 <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"}>
                     {recipes.map((element, index) => (

@@ -1,22 +1,33 @@
 import PropTypes from 'prop-types';
 import {HeartIcon} from "@heroicons/react/24/outline"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Card({ element }) {
     const [iconColor, setIconColor] = useState("text-white")
-    const [fillColor, setFillColor] = useState("none")
+    // const [fillColor, setFillColor] = useState("none")
     const [isClicked, setIsClicked] = useState(false)
 
     const changeIconColor = () => {
-        setIconColor(iconColor === "text-white" ? "text-red-500" : "text-white");
-        setFillColor(fillColor === "none" ? "red" : "none");
         setIsClicked(isClicked === false ? true : false);
     }
+
+    useEffect((() => {
+        if (isClicked === false) {
+            element.heartClicked = false
+            setIconColor("text-white");
+            // setFillColor("none");
+        }
+        else {
+            element.heartClicked = true
+            setIconColor("text-red-500");
+            // setFillColor("red");
+        }
+    }), [isClicked])
 
     return (
         <>
             <article className={"relative border-2 shadow-xl rounded-lg"}>
-                <HeartIcon className={`absolute top-2 right-4 h-6 w-6 ${iconColor}`} fill={fillColor} onClick={changeIconColor}/>
+                <HeartIcon className={`absolute top-2 right-4 h-6 w-6 ${iconColor}`} fill={element.heartClicked ? "red" : "none"} onClick={changeIconColor}/>
                 <img className={"object-cover rounded-t-lg"} src={element?.imageUrl} alt="#"/>
                 <div className={" flex flex-col px-4 py-2"}>
                     <h2 className={"text-green-900 text-2xl py-1"}>{element?.title}</h2>
